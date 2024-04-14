@@ -18,17 +18,18 @@ BottomNavigationBar bottomNavigationBar() {
           icon: "assets/svgs/pembimbing-icon.svg", label: "Pembimbing"),
     ],
     unselectedLabelStyle: TextStyle(
-      fontSize: 13.0,
+      fontSize: 12.0,
       color: Colors.black,
       fontWeight: FontWeight.w800,
-      letterSpacing: -1.0,
+      letterSpacing: -0.6,
     ),
     selectedLabelStyle: TextStyle(
-      fontSize: 13.0,
+      fontSize: 12.0,
       color: Colors.black,
       fontWeight: FontWeight.w800,
       letterSpacing: -1.0,
     ),
+
     useLegacyColorScheme: false,
   );
 }
@@ -39,6 +40,8 @@ BottomNavigationBarItem _bottomBarItem(
   return BottomNavigationBarItem(
     icon: SvgPicture.asset(
       icon,
+      width: 45.0,
+      height: 45.0,
     ),
     activeIcon: Container(
       width: 70,
@@ -48,6 +51,8 @@ BottomNavigationBarItem _bottomBarItem(
       ),
       child: SvgPicture.asset(
         icon,
+        width: 45.0,
+        height: 45.0,
       ),
     ),
     label: label,

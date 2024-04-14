@@ -4,40 +4,60 @@ import 'package:google_fonts/google_fonts.dart';
 
 AppBar appBar() {
   return AppBar(
+    leading: Row(
 
-    title: Row(
       children: [
+
+        Container(
+          width: 4.0,
+        ),
+
         IconButton(
-          padding: EdgeInsets.fromLTRB(0.0, 1.5, 0.0, 0.0),
+
           onPressed: () {
             print("menu bar pressed");
           },
+
+          padding: EdgeInsets.fromLTRB(0.0, 1.5, 0.0, 0.0),
+
           icon: SvgPicture.asset(
             'assets/svgs/menu-icon.svg',
+            width: 25.0,
+            height: 15.0,
           ),
         ),
+
         Container(
-          width: 10.0,
+          width: 3.0,
         ),
+
         Text(
           'SIPTATIF',
-          style: GoogleFonts.montserrat(
-            fontWeight: FontWeight.bold,
-            fontSize: 28.0,
-            letterSpacing: -0.8,
-          ),
-        ),
-
-        const Spacer(),
-
-        const Icon(
-          Icons.account_circle_rounded,
-          size: 45,
+            style: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.0,
+                        letterSpacing: -0.8,
+                      ),
         )
       ],
     ),
 
-    shape: const Border(
+    leadingWidth: 180,
+
+    actions: [
+      Icon(
+        Icons.account_circle_rounded,
+        size: 40,
+        color: Colors.grey[850],
+      ),
+
+      Container(
+        width: 8.0,
+      ),
+
+    ],
+
+  shape: const Border(
       bottom: BorderSide(
           color: Colors.black,
           width: 1.0
@@ -45,6 +65,5 @@ AppBar appBar() {
     ),
 
     backgroundColor: Colors.grey[350],
-
   );
 }
