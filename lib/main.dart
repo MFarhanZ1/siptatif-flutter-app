@@ -5,7 +5,7 @@ import 'package:siptatif_app/screens/login_screen.dart';
 import 'package:siptatif_app/screens/lupa_password_screen.dart';
 import 'package:siptatif_app/screens/main_screen.dart';
 import 'package:siptatif_app/screens/register_screen.dart';
-import 'package:siptatif_app/screens/reset_password.dart';
+import 'package:siptatif_app/screens/reset_password_screen.dart';
 
 void main(){
   runApp(MainApp());

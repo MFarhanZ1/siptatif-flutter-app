@@ -127,14 +127,61 @@ class _MahasiswaScreenState extends State<MahasiswaScreen> {
                           icon: Icon(Icons.edit_note_outlined),
                       ),
                       IconButton.filled(
-                          onPressed: () {
+                          onPressed: (){
+                          showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => Dialog(
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    const Text('Apakah anda yakin ingin menghapus data pengajuan mahasiswa ini?'),
+                                    const SizedBox(height: 15),
+
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: Colors.amber[100],
+                                          ),
+                                          child: const Text('Batalkan', style: TextStyle(color: Colors.black, letterSpacing: -0.2),)
+                                      ),
+                                    ),
+
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: Colors.red[100],
+                                          ),
+                                          child: const Text('Iya, Saya Yakin', style: TextStyle(color: Colors.black, letterSpacing: -0.2),)
+                                      ),
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                          // onPressed: () {
                               // AwesomeDialog(
                               //   context: context,
                               //   dialogType: DialogType.warning,
                               //   title: "Data Removed Warning!",
                               //   desc: "Apakah anda yakin ingin menghapus data pengajuan mahasiswa ini?"
                               // ).show();
-                          },
+                          // },
                           icon: Icon(Icons.delete_outline_sharp),
                       )
                     ],
