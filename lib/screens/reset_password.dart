@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({super.key});
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<ResetPassword> createState() => _ResetPasswordState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _ResetPasswordState extends State<ResetPassword> {
 
   bool passwordVisible = false;
-  bool confirmPasswordVisible = false;
+  bool reconfirmPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       resizeToAvoidBottomInset : true,
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 50),
+        padding: EdgeInsets.symmetric(vertical: 104),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
 
             const Text(
-              "Register Page",
+              "Reset Password",
               style: TextStyle(
                   fontFamily: "Montserrat-Bold",
                   fontSize: 36,
@@ -49,69 +49,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 style: TextStyle(
                     height: 1
                 ),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  hintText: 'Nama',
-                ),
-              ),
-            ),
-
-            Container(
-              height: 22,
-            ),
-
-            SizedBox(
-              width: 320,
-              child: TextField(
-                style: TextStyle(
-                    height: 1
-                ),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  hintText: 'NIM',
-                ),
-              ),
-            ),
-
-            Container(
-              height: 22,
-            ),
-
-            SizedBox(
-              width: 320,
-              child: TextField(
-                style: TextStyle(
-                    height: 1
-                ),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  hintText: 'Email Address',
-                ),
-              ),
-            ),
-
-            Container(
-              height: 22,
-            ),
-
-            SizedBox(
-              width: 320,
-              child: TextField(
-                style: TextStyle(
-                    height: 1
-                ),
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  hintText: 'Password',
+                  hintText: 'New Password',
                   suffixIcon: IconButton(
                     icon: Icon(passwordVisible
                         ? Icons.visibility_off
@@ -138,20 +81,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 style: TextStyle(
                     height: 1
                 ),
-                obscureText: confirmPasswordVisible,
+                obscureText: reconfirmPasswordVisible,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  hintText: 'Confirm Password',
+                  hintText: 'Reconfirm New Password',
                   suffixIcon: IconButton(
-                    icon: Icon(confirmPasswordVisible
+                    icon: Icon(reconfirmPasswordVisible
                         ? Icons.visibility_off
                         : Icons.visibility),
                     onPressed: () {
                       setState(
                             () {
-                          confirmPasswordVisible = !confirmPasswordVisible;
+                          reconfirmPasswordVisible = !reconfirmPasswordVisible;
                         },
                       );
                     },
@@ -161,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
 
             SizedBox(
-              height: 30,
+              height: 24,
             ),
 
             TextButton(
@@ -169,13 +112,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Navigator.pushReplacementNamed(context, "/login");
               },
               child: const Text(
-                'Register',
+                'Reset Password',
                 style: TextStyle(
-                  fontFamily: "Montserrat-SemiBold",
-                  fontSize: 20,
+                  fontFamily: "Montserrat-Bold",
+                  fontSize: 17,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
-                  letterSpacing: -0.6,
                 ),
               ),
               style: TextButton.styleFrom(
