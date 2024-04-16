@@ -10,8 +10,10 @@ class MahasiswaScreen extends StatefulWidget {
 class _MahasiswaScreenState extends State<MahasiswaScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('mahasiswa'),
+    return Column(
+      children: [
+        Card()
+      ],
     );
   }
 }
