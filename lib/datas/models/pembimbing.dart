@@ -1,17 +1,17 @@
 class Pembimbing {
-  String? nama;
-  String? NIDN;
-  String? jenisKelamin;
-  int? kuota;
-  String? keahlian;
+  String nama;
+  String NIDN;
+  String jenisKelamin;
+  int kuota;
+  String keahlian;
 
   Pembimbing(
       {
-        this.nama,
-        this.NIDN,
-        this.jenisKelamin,
-        this.kuota,
-        this.keahlian,
+        required this.nama,
+        required this.NIDN,
+        required this.jenisKelamin,
+        required this.kuota,
+        required this.keahlian,
       }
   );
 }

@@ -13,6 +13,7 @@ class MahasiswaDetailScreen extends StatefulWidget {
 class _MahasiswaDetailScreenState extends State<MahasiswaDetailScreen> {
 
   bool value = false;
+  bool value2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +109,7 @@ class _MahasiswaDetailScreenState extends State<MahasiswaDetailScreen> {
 
                   setState(() {
                     this.value = value ?? true;
+                    this.value2 = !this.value;
                   });
 
                 },
@@ -116,11 +118,12 @@ class _MahasiswaDetailScreenState extends State<MahasiswaDetailScreen> {
 
 
               Checkbox(
-                value: this.value,
+                value: this.value2,
                 onChanged: (bool? value) {
 
                   setState(() {
-                    this.value = value ?? true;
+                    this.value2 = value ?? true;
+                    this.value = !this.value2;
                   });
 
                 },

@@ -1,17 +1,17 @@
 class Penguji {
-  String? nama;
-  String? NIDN;
-  String? jenisKelamin;
-  int? kuota;
-  String? keahlian;
-
+  String nama;
+  String NIDN;
+  String jenisKelamin;
+  int kuota;
+  String keahlian;
+  
   Penguji(
       {
-        this.nama,
-        this.NIDN,
-        this.jenisKelamin,
-        this.kuota,
-        this.keahlian,
+        required this.nama,
+        required this.NIDN,
+        required this.jenisKelamin,
+        required this.kuota,
+        required this.keahlian,
       }
       );
 }
