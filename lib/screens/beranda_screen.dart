@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:siptatif_app/screens/main_screen.dart';
 
 class BerandaObject {
   String nama;
@@ -42,11 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       padding: EdgeInsets.only(bottom: 16),
       child: Column(
-        children: [
-          _templateBerandaMahasiswaCard(berandaData[0]),
-          _templateBerandaMahasiswaCard(berandaData[1]),
-          _templateBerandaMahasiswaCard(berandaData[2]),
-        ],
+        children: berandaData.map((ret) => _templateBerandaMahasiswaCard(ret)).toList(),
       ),
     );
   }
