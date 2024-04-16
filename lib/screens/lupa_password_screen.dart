@@ -115,7 +115,7 @@ class _LupaPasswordScreenState extends State<LupaPasswordScreen> {
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.purple[100],
                                       ),
-                                      child: const Text('Tutup Pesan', style: TextStyle(fontFamily: "Montserrat-Bold", color: Colors.black, letterSpacing: -0.2),)
+                                      child: const Text('Tutup Pesan', style: TextStyle(color: Colors.black, letterSpacing: -0.2),)
                                   ),
                                 ),
                               ],
