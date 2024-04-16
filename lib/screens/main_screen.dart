@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:siptatif_app/dialogs/preview_profile_pict.dart';
 
@@ -10,7 +11,6 @@ import 'package:siptatif_app/screens/pembimbing_screen.dart';
 import 'package:siptatif_app/datas/user_data.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -24,9 +24,9 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> _widgetBody = [
     HomeScreen(),
-    MahasiswaScreen(),
-    PengujiScreen(),
-    PembimbingScreen(),
+    const MahasiswaScreen(),
+    const PengujiScreen(),
+    const PembimbingScreen(),
   ];
 
   @override
@@ -69,35 +69,87 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
-  SizedBox _bottomNavigationBar() {
-    return SizedBox(
-      height: 110,
+  Container _bottomNavigationBar() {
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(
+          top:
+            BorderSide(
+              color: Colors.black12,
+              width: 1.0
+            )
+        )
+      ),
+
       child: BottomNavigationBar(
 
         elevation: 30,
-        selectedItemColor: Colors.amber,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
 
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
 
         items: [
-          _bottomBarItem(
+          _botBarItem(
               icon: "assets/svgs/beranda-icon.svg",
               label: "Beranda"),
-          _bottomBarItem(
+          _botBarItem(
               icon: "assets/svgs/mahasiswa-icon.svg",
               label: "Mahasiswa"),
-          _bottomBarItem(
+          _botBarItem(
               icon: "assets/svgs/penguji-icon.svg",
               label: "Penguji"),
-          _bottomBarItem(
+          _botBarItem(
               icon: "assets/svgs/pembimbing-icon.svg",
               label: "Pembimbing"),
         ],
+
+        useLegacyColorScheme: false,
+
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
+
+        selectedIconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        unselectedIconTheme: const IconThemeData(
+            color: Colors.black26,
+        ),
+
+        selectedLabelStyle: const TextStyle(
+          color: Colors.black,
+          fontFamily: "Montserrat-SemiBold",
+          letterSpacing: -0.9,
+        ),
+
+        unselectedLabelStyle: const TextStyle(
+            color: Colors.black38,
+            fontFamily: "Montserrat-SemiBold",
+            letterSpacing: -0.9,
+        ),
       ),
+    );
+  }
+
+  BottomNavigationBarItem _botBarItem({required String icon, required String label}){
+    return BottomNavigationBarItem(
+      icon: SvgPicture.asset(icon, width: 33, color: Colors.black38,),
+      activeIcon: Container(
+          width: 70,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.purple[50],
+          ),
+          child:
+            SvgPicture.asset(
+              icon,
+              width: 33,
+              color: Colors.black,
+            ),
+      ),
+      label: label
     );
   }
 
@@ -193,12 +245,12 @@ class _MainScreenState extends State<MainScreen> {
             width: 3.0,
           ),
 
-          Text(
+          const Text(
             'SIPTATIF',
-            style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.bold,
+            style: TextStyle(
+              fontFamily: "Montserrat-Bold",
               fontSize: 24.0,
-              letterSpacing: -0.8,
+              letterSpacing: -0.9,
             ),
           )
         ],
@@ -256,9 +308,9 @@ class _MainScreenState extends State<MainScreen> {
 
           child: CircleAvatar(
             backgroundImage: AssetImage(
-                "${userData.profilePict}"
+                userData.profilePict
             ),
-            radius: 21,
+            radius: 20,
           ),
         ),
         // Icon(
@@ -273,15 +325,15 @@ class _MainScreenState extends State<MainScreen> {
 
       ],
 
-      // shape: const Border(
-      //   bottom: BorderSide(
-      //       color: Colors.black,
-      //       width: 1.0
-      //   ),
-      // ),
+      shape: const Border(
+        bottom: BorderSide(
+            color: Colors.black12,
+            width: 1.0
+        ),
+      ),
 
-      backgroundColor: Colors.grey[200],
-      elevation: 3,
+      // backgroundColor: Colors.grey[200],
+      // elevation: 1,
     );
   }
 
@@ -360,7 +412,7 @@ class _MainScreenState extends State<MainScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.pending_actions, size: 20,),
+                            const Icon(Icons.pending_actions, size: 20,),
                             Container(width: 7,),
                             Text('${userData.roles}',
                               style: const TextStyle(
