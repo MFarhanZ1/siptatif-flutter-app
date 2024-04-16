@@ -122,9 +122,11 @@ class _MahasiswaScreenState extends State<MahasiswaScreen> {
                       const Spacer(),
                       IconButton.filledTonal(
                           onPressed: () {
-
+                            Navigator.pushNamed(context, "/mhs-detail-screen", arguments: mhs,);
                           },
+
                           icon: Icon(Icons.edit_note_outlined),
+
                       ),
                       IconButton.filled(
                           onPressed: (){

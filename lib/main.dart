@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:siptatif_app/screens/login_screen.dart';
 import 'package:siptatif_app/screens/lupa_password_screen.dart';
+import 'package:siptatif_app/screens/mahasiswa_detail_screen.dart';
 import 'package:siptatif_app/screens/main_screen.dart';
 import 'package:siptatif_app/screens/register_screen.dart';
 import 'package:siptatif_app/screens/reset_password_screen.dart';
@@ -29,6 +30,7 @@ class _MainAppState extends State<MainApp> {
         "/lupa-password": (context) => LupaPasswordScreen(),
         "/reset-password": (context) => ResetPassword(),
         "/main": (context) => MainScreen(),
+        "/mhs-detail-screen": (context) => MahasiswaDetailScreen(),
       },
 
       title: "SIPTATIF Mobile",
