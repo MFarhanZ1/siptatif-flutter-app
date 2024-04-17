@@ -151,7 +151,7 @@ class _PengujiScreenState extends State<PengujiScreen> {
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    const Text('Apakah anda yakin ingin menghapus data pengajuan mahasiswa ini?'),
+                                    const Text('Apakah anda yakin ingin menghapus data dosen penguji ini?'),
                                     const SizedBox(height: 15),
 
                                     TextButton(
