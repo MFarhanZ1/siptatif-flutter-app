@@ -1,49 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:siptatif_app/datas/models/mahasiswa.dart';
 import 'package:siptatif_app/datas/models/penguji.dart';
 
-class PengujiIUScreen extends StatefulWidget {
-  const PengujiIUScreen({super.key});
+class PengujiTambahScreen extends StatefulWidget {
+  const PengujiTambahScreen({super.key});
 
   @override
-  State<PengujiIUScreen> createState() => _PengujiIUScreenState();
+  State<PengujiTambahScreen> createState() => _PengujiTambahScreenState();
 }
 
-class _PengujiIUScreenState extends State<PengujiIUScreen> {
-
-  bool value = false;
-  bool value2 = false;
+class _PengujiTambahScreenState extends State<PengujiTambahScreen> {
 
   @override
   Widget build(BuildContext context) {
 
-    final args = ModalRoute.of(context)!.settings.arguments as Penguji;
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Edit Data Penguji'),
-          titleSpacing: 0,
-        ),
-        body: contentDetail(args),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Tambah Data Penguji'),
+        titleSpacing: 0,
       ),
+      body: contentDetail(),
     );
   }
 
-  Widget contentDetail(Penguji penguji) {
+  Widget contentDetail() {
 
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       child: Column(
 
         children: [
-          _contentInput("Nama Dosen", penguji.nama),
-          _contentInput("NIDN Dosen", penguji.NIDN),
-          _contentInput("Jenis Kelamin Dosen", penguji.jenisKelamin),
-          _contentInput("Kuota Mahasiswa Bimbingan", penguji.kuota.toString()),
-          _contentInput("Keahlian Dosen", penguji.keahlian),
+          _contentInput("Nama Dosen"),
+          _contentInput("NIDN Dosen"),
+          _contentInput("Jenis Kelamin Dosen"),
+          _contentInput("Kuota Mahasiswa Bimbingan"),
+          _contentInput("Keahlian Dosen"),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -75,7 +67,7 @@ class _PengujiIUScreenState extends State<PengujiIUScreen> {
     );
   }
 
-  Widget _contentInput(String label, String val) {
+  Widget _contentInput(String label) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -90,7 +82,7 @@ class _PengujiIUScreenState extends State<PengujiIUScreen> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              hintText: val,
+              hintText: label,
             ),
           ),
         ),

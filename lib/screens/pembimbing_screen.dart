@@ -49,7 +49,7 @@ class _PembimbingScreenState extends State<PembimbingScreen> {
             children: [
               FilledButton(
                   onPressed: () {
-
+                    Navigator.pushNamed(context, "/tambah-pembimbing");
                   },
                   child: Text("+ Tambah Data")
               ),
@@ -136,7 +136,7 @@ class _PembimbingScreenState extends State<PembimbingScreen> {
                       const Spacer(),
                       IconButton.filledTonal(
                         onPressed: () {
-                          Navigator.pushNamed(context, "/pembimbing-iu-screen", arguments: pembimbing);
+                          Navigator.pushNamed(context, "/pembimbing-update-screen", arguments: pembimbing);
                         },
 
                         icon: Icon(Icons.edit_note_outlined),

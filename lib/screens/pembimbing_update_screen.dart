@@ -5,14 +5,14 @@ import 'package:siptatif_app/datas/models/mahasiswa.dart';
 import 'package:siptatif_app/datas/models/pembimbing.dart';
 import 'package:siptatif_app/datas/models/pembimbing.dart';
 
-class PembimbingIUScreen extends StatefulWidget {
-  const PembimbingIUScreen({super.key});
+class PembimbingUpdateScreen extends StatefulWidget {
+  const PembimbingUpdateScreen({super.key});
 
   @override
-  State<PembimbingIUScreen> createState() => _PembimbingIUScreenState();
+  State<PembimbingUpdateScreen> createState() => _PembimbingUpdateScreenState();
 }
 
-class _PembimbingIUScreenState extends State<PembimbingIUScreen> {
+class _PembimbingUpdateScreenState extends State<PembimbingUpdateScreen> {
 
   bool value = false;
   bool value2 = false;
@@ -21,15 +21,12 @@ class _PembimbingIUScreenState extends State<PembimbingIUScreen> {
   Widget build(BuildContext context) {
 
     final args = ModalRoute.of(context)!.settings.arguments as Pembimbing;
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Edit Data Pembimbing'),
-          titleSpacing: 0,
-        ),
-        body: contentDetail(args),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Edit Data Pembimbing'),
+        titleSpacing: 0,
       ),
+      body: contentDetail(args),
     );
   }
 
