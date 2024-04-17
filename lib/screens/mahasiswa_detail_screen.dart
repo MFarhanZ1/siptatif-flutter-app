@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:siptatif_app/datas/models/mahasiswa.dart';
+import 'package:siptatif_app/datas/models/penguji.dart';
+import 'package:siptatif_app/datas/penguji_data.dart';
 
 class MahasiswaDetailScreen extends StatefulWidget {
   const MahasiswaDetailScreen({super.key});
@@ -35,14 +37,183 @@ class _MahasiswaDetailScreenState extends State<MahasiswaDetailScreen> {
         body: TabBarView(
           children: [
             contentDetail(args),
-            Icon(Icons.directions_transit),
+            inputPenguji(),
           ],
         ),
       ),
     );
   }
 
+  Widget _textFieldGenerator(String label) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17, letterSpacing: -0.5),),
+        const SizedBox(height: 5),
+        SizedBox(
+          child: TextField(
+            style: TextStyle(
+                height: 1
+            ),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              hintText: label,
+            ),
+          ),
+        ),
 
+        const SizedBox(height: 20),
+
+      ],
+    );
+  }
+  
+  Widget inputPenguji(){
+    return SingleChildScrollView(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        children: [
+
+          Container(
+            child: TextField(
+              style: TextStyle(
+                  height: 1
+              ),
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                hintText: 'Search',
+              ),
+            ),
+          ),
+
+
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: pengujiData.map((penguji) => _templatePengujiCard(penguji)).toList(),
+            ),
+          ),
+
+          SizedBox(
+            height: 23,
+          ),
+          
+          _textFieldGenerator("Input Dosen Penguji 1"),
+          _textFieldGenerator("Input Dosen Penguji 2"),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+
+              FilledButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }, child: Text(
+                  "Kembali"
+              )
+              ),
+
+              const SizedBox(width: 8,),
+
+              FilledButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }, child: Text(
+                  "Kirim"
+              )
+              )
+            ],
+          )
+
+        ],
+
+      ),
+    );
+  }
+
+  Card _templatePengujiCard(Penguji penguji){
+    return Card(
+        elevation: 0,
+        color: Colors.grey[200],
+        margin: const EdgeInsets.fromLTRB(0,18, 17, 0),
+        child:
+
+        Padding(
+
+          padding: const EdgeInsets.all(12.0),
+
+          child:
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+              _generateRowDataPoint(Icons.account_circle_rounded, penguji.nama),
+              _generateRowDataPoint(Icons.calendar_view_day_rounded, penguji.NIDN),
+              _generateRowDataPoint(Icons.transgender_rounded, penguji.jenisKelamin),
+
+              SizedBox(
+                height: 4,
+              ),
+
+              Divider(
+                height: 1,
+                color: Colors.black,
+                thickness: 0.8,
+              ),
+
+              SizedBox(
+                height: 4,
+              ),
+
+              Text('"${penguji.keahlian}"', textAlign: TextAlign.start,),
+              SizedBox(
+                height: 4,
+              ),
+
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.amber[200]
+                ),
+                child: Text(
+                  "${penguji.kuota.toString()} kuota tersedia",
+                  style: TextStyle(
+                    fontFamily: "Montserrat-SemiBold",
+                    letterSpacing: -0.5,
+                  ),
+                ),
+              )
+
+            ],
+          ),
+        )
+    );
+  }
+
+  Row _generateRowDataPoint(IconData icon, String label){
+    return Row(
+      children: [
+        Icon(icon, size: 15,),
+        SizedBox(
+          width: 3,
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            letterSpacing: -0.3,
+          ),
+        )
+      ],
+    );
+  }
 
   Widget contentDetail(Mahasiswa mhs) {
 
