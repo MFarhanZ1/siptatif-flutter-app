@@ -2,16 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:siptatif_app/datas/models/mahasiswa.dart';
-import 'package:siptatif_app/datas/models/penguji.dart';
+import 'package:siptatif_app/datas/models/pembimbing.dart';
+import 'package:siptatif_app/datas/models/pembimbing.dart';
 
-class PengujiIUScreen extends StatefulWidget {
-  const PengujiIUScreen({super.key});
+class PembimbingIUScreen extends StatefulWidget {
+  const PembimbingIUScreen({super.key});
 
   @override
-  State<PengujiIUScreen> createState() => _PengujiIUScreenState();
+  State<PembimbingIUScreen> createState() => _PembimbingIUScreenState();
 }
 
-class _PengujiIUScreenState extends State<PengujiIUScreen> {
+class _PembimbingIUScreenState extends State<PembimbingIUScreen> {
 
   bool value = false;
   bool value2 = false;
@@ -19,12 +20,12 @@ class _PengujiIUScreenState extends State<PengujiIUScreen> {
   @override
   Widget build(BuildContext context) {
 
-    final args = ModalRoute.of(context)!.settings.arguments as Penguji;
+    final args = ModalRoute.of(context)!.settings.arguments as Pembimbing;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Edit Data Penguji'),
+          title: const Text('Edit Data Pembimbing'),
           titleSpacing: 0,
         ),
         body: contentDetail(args),
@@ -32,18 +33,18 @@ class _PengujiIUScreenState extends State<PengujiIUScreen> {
     );
   }
 
-  Widget contentDetail(Penguji penguji) {
+  Widget contentDetail(Pembimbing pembimbing) {
 
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       child: Column(
 
         children: [
-          _contentInput("Nama Dosen", penguji.nama),
-          _contentInput("NIDN Dosen", penguji.NIDN),
-          _contentInput("Jenis Kelamin Dosen", penguji.jenisKelamin),
-          _contentInput("Kuota Mahasiswa Bimbingan", penguji.kuota.toString()),
-          _contentInput("Keahlian Dosen", penguji.keahlian),
+          _contentInput("Nama Dosen", pembimbing.nama),
+          _contentInput("NIDN Dosen", pembimbing.NIDN),
+          _contentInput("Jenis Kelamin Dosen", pembimbing.jenisKelamin),
+          _contentInput("Kuota Mahasiswa Bimbingan", pembimbing.kuota.toString()),
+          _contentInput("Keahlian Dosen", pembimbing.keahlian),
 
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

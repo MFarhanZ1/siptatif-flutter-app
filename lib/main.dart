@@ -5,6 +5,7 @@ import 'package:siptatif_app/screens/login_screen.dart';
 import 'package:siptatif_app/screens/lupa_password_screen.dart';
 import 'package:siptatif_app/screens/mahasiswa_detail_screen.dart';
 import 'package:siptatif_app/screens/main_screen.dart';
+import 'package:siptatif_app/screens/pembimbing_iu_screen.dart';
 import 'package:siptatif_app/screens/penguji_iu_screen.dart';
 import 'package:siptatif_app/screens/register_screen.dart';
 import 'package:siptatif_app/screens/reset_password_screen.dart';
@@ -33,6 +34,7 @@ class _MainAppState extends State<MainApp> {
         "/main": (context) => MainScreen(),
         "/mhs-detail-screen": (context) => MahasiswaDetailScreen(),
         "/penguji-iu-screen": (context) => PengujiIUScreen(),
+        "/pembimbing-iu-screen": (context) => PembimbingIUScreen(),
       },
 
       title: "SIPTATIF Mobile",

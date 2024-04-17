@@ -136,7 +136,7 @@ class _PembimbingScreenState extends State<PembimbingScreen> {
                       const Spacer(),
                       IconButton.filledTonal(
                         onPressed: () {
-                          // Navigator.pushNamed(context, "/mhs-detail-screen", arguments: mhs,);
+                          Navigator.pushNamed(context, "/pembimbing-iu-screen", arguments: pembimbing);
                         },
 
                         icon: Icon(Icons.edit_note_outlined),
