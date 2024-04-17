@@ -134,7 +134,7 @@ class _PengujiScreenState extends State<PengujiScreen> {
                       const Spacer(),
                       IconButton.filledTonal(
                         onPressed: () {
-                          // Navigator.pushNamed(context, "/mhs-detail-screen", arguments: mhs,);
+                          Navigator.pushNamed(context, "/penguji-iu-screen", arguments: penguji);
                         },
 
                         icon: Icon(Icons.edit_note_outlined),
