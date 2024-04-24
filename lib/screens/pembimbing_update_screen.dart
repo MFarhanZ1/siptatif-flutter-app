@@ -80,7 +80,8 @@ class _PembimbingUpdateScreenState extends State<PembimbingUpdateScreen> {
         Text(label, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17, letterSpacing: -0.5),),
         const SizedBox(height: 5),
         SizedBox(
-          child: TextField(
+          child: TextFormField(
+            initialValue: val,
             style: TextStyle(
                 height: 1
             ),
@@ -88,7 +89,6 @@ class _PembimbingUpdateScreenState extends State<PembimbingUpdateScreen> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              hintText: val,
             ),
           ),
         ),
